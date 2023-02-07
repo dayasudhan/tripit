@@ -7,10 +7,10 @@ import {
   Document
 } from 'mongoose';
 
-export type EmployeeDocument = Employee & Document;
+export type ProfileDocument = Profile & Document;
 
 @Schema()
-export class Employee {
+export class Profile {
   @Prop()
   FirstName: string;
 
@@ -33,4 +33,4 @@ export class Employee {
   // Gender: string;
 }
 
-export const EmployeeSchema = SchemaFactory.createForClass(Employee);
+export const ProfileSchema = SchemaFactory.createForClass(Profile);

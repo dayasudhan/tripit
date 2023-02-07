@@ -1,4 +1,4 @@
-export class Employee {
+export class Profile {
   FirstName: string;
   SurName: string;
   // Gender: string;

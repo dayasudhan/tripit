@@ -2,12 +2,12 @@ import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { MongooseModule } from '@nestjs/mongoose';
-import { EmployeeModule } from './employee/employee.module';
+import { ProfileModule } from './profile/profile.module';
 const MONGOURI = 
 process.env.ATLAS_URISTRING ||
-  'mongodb://127.0.0.1:27017/Employee';
+  'mongodb://127.0.0.1:27017/Profile';
 @Module({
-  imports: [ MongooseModule.forRoot(MONGOURI),EmployeeModule],
+  imports: [ MongooseModule.forRoot(MONGOURI),ProfileModule],
   controllers: [AppController],
   providers: [AppService],
 })
