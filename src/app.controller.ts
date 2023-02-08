@@ -7,6 +7,7 @@ export class AppController {
 
   @Get()
   getHello(): string {
+    console.log("process.env.ATLAS_URISTRING",process.env.ATLAS_URISTRING)
     return this.appService.getHello();
   }
 }
