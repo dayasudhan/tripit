@@ -1,5 +1,5 @@
 import {
   Post
-} from "../entities/Post.entity";
+} from "../entities/post.entity";
 
 export class CreatePostDto extends Post {}
