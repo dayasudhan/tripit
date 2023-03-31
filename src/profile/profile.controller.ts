@@ -28,6 +28,7 @@ export class ProfileController {
 
   @Get()
   findAll() {
+    console.log("profile findall")
     return this.profileService.findAll();
   }
 
