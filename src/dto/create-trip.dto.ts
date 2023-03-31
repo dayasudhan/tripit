@@ -1,5 +1,5 @@
 import {
   Trip
-} from "../entities/Trip.entity";
+} from "../entities/trip.entity";
 
 export class CreateTripDto extends Trip {}
