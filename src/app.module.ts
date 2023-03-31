@@ -7,8 +7,7 @@ import { ProfileModule } from './profile/profile.module';
 import { AuthModule } from './auth/auth.module';
 import { UsersModule } from './users/users.module';
 import { PostModule } from './post/post.module';
-import { TripModule } from './trip/trip.module';
-const MONGOURI ='mongodb+srv://heroku_z21t18n4:sudhan@cluster-z21t18n4.g35xm.mongodb.net/heroku_z21t18n4?retryWrites=true&w=majority' 
+const MONGOURI = process.env.ATLAS_URISTRING || 'mongodb://127.0.0.1:27017/Profile' ;
 @Module({
   
   imports: [ ConfigModule.forRoot({ isGlobal: true }),
