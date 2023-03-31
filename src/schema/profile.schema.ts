@@ -16,7 +16,9 @@ export class Profile {
 
   @Prop()
   SurName: string;
-
+  
+  @Prop()
+  phone: number;
   // @Prop()
   // Designation: string;
 

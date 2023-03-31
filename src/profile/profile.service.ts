@@ -29,6 +29,7 @@ export class ProfileService {
   }
 
   async findAll(): Promise < ProfileDocument[] > {
+    console.log("profile service findalll");
     return this.profileModel.find()
       .exec();
   }
