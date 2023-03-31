@@ -12,38 +12,38 @@ import {
 } from './trip.service';
 import {
   CreateTripDto
-} from '../dto/create-Trip.dto';
+} from '../dto/create-trip.dto';
 import {
   UpdateTripDto
-} from '../dto/update-Trip.dto';
+} from '../dto/update-trip.dto';
 
-@Controller('Trip')
+@Controller('trip')
 export class TripController {
-  constructor(private readonly TripService: TripService) {}
+  constructor(private readonly tripService: TripService) {}
 
   @Post()
   create(@Body() createTripDto: CreateTripDto) {
-    return this.TripService.create(createTripDto);
+    return this.tripService.create(createTripDto);
   }
 
   @Get()
   findAll() {
     console.log("Trip findall")
-    return this.TripService.findAll();
+    return this.tripService.findAll();
   }
 
   @Get(':id')
   findOne(@Param('id') id: string) {
-    return this.TripService.findOne(id);
+    return this.tripService.findOne(id);
   }
 
   @Put(':id')
   update(@Param('id') id: string, @Body() updateTripDto: UpdateTripDto) {
-    return this.TripService.update(id, updateTripDto);
+    return this.tripService.update(id, updateTripDto);
   }
 
   @Delete(':id')
   remove(@Param('id') id: string) {
-    return this.TripService.remove(id);
+    return this.tripService.remove(id);
   }
 }
