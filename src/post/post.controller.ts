@@ -12,38 +12,38 @@ import {
 } from './post.service';
 import {
   CreatePostDto
-} from '../dto/create-Post.dto';
+} from '../dto/create-post.dto';
 import {
   UpdatePostDto
-} from '../dto/update-Post.dto';
+} from '../dto/update-post.dto';
 
-@Controller('Post')
+@Controller('post')
 export class PostController {
-  constructor(private readonly PostService: PostService) {}
+  constructor(private readonly postService: PostService) {}
 
   @Post()
   create(@Body() createPostDto: CreatePostDto) {
-    return this.PostService.create(createPostDto);
+    return this.postService.create(createPostDto);
   }
 
   @Get()
   findAll() {
     console.log("Post findall")
-    return this.PostService.findAll();
+    return this.postService.findAll();
   }
 
   @Get(':id')
   findOne(@Param('id') id: string) {
-    return this.PostService.findOne(id);
+    return this.postService.findOne(id);
   }
 
   @Put(':id')
   update(@Param('id') id: string, @Body() updatePostDto: UpdatePostDto) {
-    return this.PostService.update(id, updatePostDto);
+    return this.postService.update(id, updatePostDto);
   }
 
   @Delete(':id')
   remove(@Param('id') id: string) {
-    return this.PostService.remove(id);
+    return this.postService.remove(id);
   }
 }

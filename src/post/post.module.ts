@@ -10,7 +10,7 @@ import {
 import {
   Post,
   PostSchema
-} from '../schema/Post.schema';
+} from '../schema/post.schema';
 import {
   MongooseModule
 } from '@nestjs/mongoose';

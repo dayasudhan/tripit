@@ -9,39 +9,39 @@ import {
 } from 'mongoose';
 import {
   CreatePostDto
-} from '../dto/create-Post.dto';
+} from '../dto/create-post.dto';
 import {
   UpdatePostDto
-} from '../dto/update-Post.dto';
+} from '../dto/update-post.dto';
 import {
   Post,
   PostDocument
-} from '../schema/Post.schema';
+} from '../schema/post.schema';
 
 @Injectable()
 export class PostService {
 
-  constructor(@InjectModel(Post.name) private readonly PostModel: Model < PostDocument > ) {}
+  constructor(@InjectModel(Post.name) private readonly postModel: Model < PostDocument > ) {}
 
   async create(createPostDto: CreatePostDto): Promise < PostDocument > {
-    const Post = new this.PostModel(createPostDto);
-    return Post.save();
+    const post = new this.postModel(createPostDto);
+    return post.save();
   }
 
   async findAll(): Promise < PostDocument[] > {
-    return this.PostModel.find()
+    return this.postModel.find()
       .exec();
   }
 
   async findOne(id: string) {
-    return this.PostModel.findById(id);
+    return this.postModel.findById(id);
   }
 
   async update(id: string, updatePostDto: UpdatePostDto): Promise < PostDocument > {
-    return this.PostModel.findByIdAndUpdate(id, updatePostDto);
+    return this.postModel.findByIdAndUpdate(id, updatePostDto);
   }
 
   async remove(id: string) {
-    return this.PostModel.findByIdAndRemove(id);
+    return this.postModel.findByIdAndRemove(id);
   }
 }
