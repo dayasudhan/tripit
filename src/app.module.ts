@@ -8,13 +8,13 @@ import { AuthModule } from './auth/auth.module';
 import { UsersModule } from './users/users.module';
 import { PostModule } from './post/post.module';
 const MONGOURI = process.env.ATLAS_URISTRING || 'mongodb://127.0.0.1:27017/Profile' ;
-
 @Module({
   
   imports: [ ConfigModule.forRoot({ isGlobal: true }),
      MongooseModule.forRoot(MONGOURI),
      ProfileModule,
      PostModule,
+     TripModule,
      AuthModule,
      UsersModule],
   controllers: [AppController],
