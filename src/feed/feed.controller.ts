@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete,Put } from '@nestjs/common';
+import { Controller, Get, Post, Body, Patch, Param, Delete,Put,Query } from '@nestjs/common';
 import { FeedService } from './feed.service';
 import { CreateFeedDto } from './dto/create-feed.dto';
 import { UpdateFeedDto } from './dto/update-feed.dto';
@@ -19,40 +19,33 @@ export class FeedController {
     return this.feedService.findAll();
   }
 
-  @Get(':id')
-  findOne(@Param('id') id: string) {
+  @Get()
+  findOne(@Query('id') id: string) {
     return this.feedService.findOne(id);
   }
-  // @Get(':username')
-  // findByUsername() {
-  //   console.log("findbyusrname controller")
-  //   return this.feedService.findByUserName('daya');
-  // }
-  @Post(':id')
-  update(@Param('id') id: string, @Body() updateFeedDto: UpdateFeedDto) {
+
+  @Post()
+  update(@Query('id') id: string, @Body() updateFeedDto: UpdateFeedDto) {
     console.log("feed update",  updateFeedDto,id)
     return this.feedService.update(id, updateFeedDto);
   }
-  @Put(':id')
-  addFeed(@Param('id') id: string, @Body() updateFeedDto: UpdateFeedDto) {
+  @Put()
+  addFeed(@Query('id') id: string, @Body() updateFeedDto: UpdateFeedDto) {
     console.log("feed add",  updateFeedDto)
     return this.feedService.addFeed(id, updateFeedDto);
   }
-  @Delete(':id')
-  remove(@Param('id') id: string) {
+  @Delete()
+  remove(@Query('id') id: string) {
     return this.feedService.remove(id);
   }
-
-//   @Put('/:id')
-// async updateStudent(@Res() response,@Param('id') studentId: string,
-// @Body() updateStudentDto: UpdateStudentDto) {
-//   try {
-//    const existingStudent = await this.studentService.updateStudent(studentId, updateStudentDto);
-//   return response.status(HttpStatus.OK).json({
-//   message: 'Student has been successfully updated',
-//   existingStudent,});
-//  } catch (err) {
-//    return response.status(err.status).json(err.response);
-//  }
-//}
+  @Get('/images')
+  findImages(@Query('id') id: string) {
+    console.log("feed findAll") 
+    return this.feedService.findImages(id);
+  }
+  @Get('/videos')
+  findVideos(@Query('id') id: string) {
+    console.log("feed videos") 
+    return this.feedService.findVideos(id);
+  }
 }

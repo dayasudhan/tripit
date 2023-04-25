@@ -57,4 +57,29 @@ export class FeedService {
   async remove(id: string) {
     return this.feedModel.findByIdAndRemove(id);
   }
+  async findImages(id: string) {
+    //console.log("trip service findalll");
+    const ret =  await  this.feedModel.findById(id);
+    //console.log("ret",ret)
+    const images = ret.newsfeed.filter((item) => item.feedimages.length >0);
+   // console.log("images",images)
+    const retimages = images.map((item) => item.feedimages);
+    let rimages = []
+    images.forEach((item) => {item.feedimages.forEach((item) => rimages.push(item))}    );
+    // console.log("retimages",retimages)
+    // console.log("rimages",rimages)
+    return rimages;
+  }
+  async findVideos(id: string) {
+    console.log("trip service findalll");
+    const ret =  await  this.feedModel.findById(id);
+    console.log("ret",ret)
+    const videos = ret.newsfeed.filter((item) => item.feedvideos.length >0);
+    // const retimages = videos.map((item) => item.feedvideos);
+    // let rimages = []
+    // videos.forEach((item) => {item.feedvideos.forEach((item) => rimages.push(item))}    );
+    // console.log("retimages",retimages)
+    // console.log("rimages",rimages)
+    return videos;
+  }
 }
