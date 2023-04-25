@@ -27,14 +27,16 @@ export class Feed {
   @Prop({
     type:[{heading:{type:String},
       description:{type:String},
-      // feedvideo:{type:String},
-      // feedimages:[{url:string}];
-      // feedvideos:[{url:string}];
-      // feedaudios:[{url:string}];
-     //  time:Date
+       feedvideo:{type:String},
+       feedimages:[{url:String}],
+       feedvideos:[{url:String}],
+       feedaudios:[{url:String}],
+       time:Date
     }]
   })
-  newsfeed: { heading: string; description: string }[];
+  newsfeed: { heading: string; description: string,feedvideo:{type:String},feedimages:[{url:String}],
+  feedvideos:[{url:String}],
+  feedaudios:[{url:String}]}[];
 }
 
 export const FeedSchema = SchemaFactory.createForClass(Feed);

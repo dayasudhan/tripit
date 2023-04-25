@@ -15,7 +15,7 @@ export class Feed {
              feedimages:[{url:string}];
              feedvideos:[{url:string}];
              feedaudios:[{url:string}];
-            //  time:Date
+              time:Date
            }];
   inbox:[{
               name:string;
