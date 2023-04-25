@@ -13,7 +13,7 @@ export class FeedController {
     return this.feedService.create(createFeedDto);
   }
 
-  @Get()
+  @Get('/all')
   findAll() {
     console.log("feed findAll") 
     return this.feedService.findAll();

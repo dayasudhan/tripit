@@ -18,8 +18,10 @@ export class SuggestionService {
   
   async create(createSuggestionDto: CreateSuggestionDto) : Promise < SuggestionDocument >{
     console.log("trip service create",createSuggestionDto);
-    const Suggestion = new this.suggestionModel(createSuggestionDto);
-    return Suggestion.save();
+    const Suggestion = await new this.suggestionModel(createSuggestionDto);
+    const ret = Suggestion.save();
+    console.log("ret",ret)
+    return ret;
   }
 
   async findAll(): Promise < SuggestionDocument[] > {

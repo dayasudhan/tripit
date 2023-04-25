@@ -61,11 +61,11 @@ export class FeedService {
     //console.log("trip service findalll");
     const ret =  await  this.feedModel.findById(id);
     //console.log("ret",ret)
-    const images = ret.newsfeed.filter((item) => item.feedimages.length >0);
+    const images = ret.newsfeed?.filter((item) => item.feedimages?.length >0);
    // console.log("images",images)
-    const retimages = images.map((item) => item.feedimages);
+    const retimages = images?.map((item) => item.feedimages);
     let rimages = []
-    images.forEach((item) => {item.feedimages.forEach((item) => rimages.push(item))}    );
+    images?.forEach((item) => {item.feedimages?.forEach((item) => rimages.push(item))}    );
     // console.log("retimages",retimages)
     // console.log("rimages",rimages)
     return rimages;
