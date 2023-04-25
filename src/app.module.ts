@@ -9,6 +9,7 @@ import { UsersModule } from './users/users.module';
 import { PostModule } from './post/post.module';
 import { TripModule } from './trip/trip.module';
 import { FeedModule } from './feed/feed.module';
+import { SuggestionModule } from './suggestion/suggestion.module';
 const MONGOURI ='mongodb+srv://heroku_z21t18n4:sudhan@cluster-z21t18n4.g35xm.mongodb.net/heroku_z21t18n4?retryWrites=true&w=majority' 
 @Module({
   
@@ -19,7 +20,8 @@ const MONGOURI ='mongodb+srv://heroku_z21t18n4:sudhan@cluster-z21t18n4.g35xm.mon
      TripModule,
      AuthModule,
      UsersModule,
-     FeedModule],
+     FeedModule,
+     SuggestionModule],
   controllers: [AppController],
   providers: [AppService],
 })

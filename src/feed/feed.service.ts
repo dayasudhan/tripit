@@ -39,7 +39,10 @@ export class FeedService {
     console.log("update ")
     return this.feedModel.findByIdAndUpdate(id, updateFeedDto);
   }
-
+  async addSuggestion(id: string, updateFeedDto: UpdateFeedDto): Promise < FeedDocument > {
+    console.log("update ")
+    return this.feedModel.findByIdAndUpdate(id, updateFeedDto);
+  }
   async remove(id: string) {
     return this.feedModel.findByIdAndRemove(id);
   }

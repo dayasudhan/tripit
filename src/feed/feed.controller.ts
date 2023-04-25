@@ -33,7 +33,11 @@ export class FeedController {
     console.log("feed update",  updateFeedDto)
     return this.feedService.update(id, updateFeedDto);
   }
-
+  @Put(':id')
+  addSuggestion(@Param('id') id: string, @Body() updateFeedDto: UpdateFeedDto) {
+    console.log("feed update",  updateFeedDto)
+    return this.feedService.update(id, updateFeedDto);
+  }
   @Delete(':id')
   remove(@Param('id') id: string) {
     return this.feedService.remove(id);
