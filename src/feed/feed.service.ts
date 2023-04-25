@@ -31,8 +31,12 @@ export class FeedService {
   async findOne(id: string) {
     return this.feedModel.findById(id);
   }
-
+  // async findByUserName(username: string) {
+  //   console.log("findbyusrname service")
+  //   return this.feedModel.find({ username: username });
+  // }
   async update(id: string, updateFeedDto: UpdateFeedDto): Promise < FeedDocument > {
+    console.log("update ")
     return this.feedModel.findByIdAndUpdate(id, updateFeedDto);
   }
 
