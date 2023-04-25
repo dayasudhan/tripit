@@ -60,6 +60,7 @@ export class FeedService {
   async findImages(id: string) {
     //console.log("trip service findalll");
     const ret =  await  this.feedModel.findById(id);
+    
     //console.log("ret",ret)
     const images = ret.newsfeed?.filter((item) => item.feedimages?.length >0);
    // console.log("images",images)

@@ -48,4 +48,14 @@ export class FeedController {
     console.log("feed videos") 
     return this.feedService.findVideos(id);
   }
+  @Get('/manifesto')
+  findManifesto(@Query('id') id: string) {
+   const maifesto= [
+    {  'url': 'https://chunavane.s3.ap-south-1.amazonaws.com/jds_manifesto/mf1.jpg'},
+   {  'url': 'https://chunavane.s3.ap-south-1.amazonaws.com/jds_manifesto/mf2.jpg'},
+   {  'url': 'https://chunavane.s3.ap-south-1.amazonaws.com/jds_manifesto/mf3.jpg'},
+   {  'url': 'https://chunavane.s3.ap-south-1.amazonaws.com/jds_manifesto/mf4.jpg'}
+  ]
+   return maifesto
+  }
 }
