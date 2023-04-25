@@ -36,13 +36,24 @@ export class FeedService {
   //   return this.feedModel.find({ username: username });
   // }
   async update(id: string, updateFeedDto: UpdateFeedDto): Promise < FeedDocument > {
-    console.log("update ")
+    console.log("update ",id)
     return this.feedModel.findByIdAndUpdate(id, updateFeedDto);
   }
   async addSuggestion(id: string, updateFeedDto: UpdateFeedDto): Promise < FeedDocument > {
     console.log("update ")
     return this.feedModel.findByIdAndUpdate(id, updateFeedDto);
   }
+  async addFeed(id: string, updateFeedDto: UpdateFeedDto) {
+    //console.log("add feed ",id,updateFeedDto)
+    const ret = await this.feedModel.updateOne({"_id" : id},  
+      { $addToSet: { "newsfeed": updateFeedDto.newsfeed }} );
+      console.log("ret",ret)
+      return ret;
+  }
+//   .updateOne(
+//     { _id: 1 },
+//     { $addToSet: { colors: "mauve" } }
+//  )
   async remove(id: string) {
     return this.feedModel.findByIdAndRemove(id);
   }

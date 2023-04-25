@@ -28,15 +28,15 @@ export class FeedController {
   //   console.log("findbyusrname controller")
   //   return this.feedService.findByUserName('daya');
   // }
-  @Patch(':id')
+  @Post(':id')
   update(@Param('id') id: string, @Body() updateFeedDto: UpdateFeedDto) {
-    console.log("feed update",  updateFeedDto)
+    console.log("feed update",  updateFeedDto,id)
     return this.feedService.update(id, updateFeedDto);
   }
   @Put(':id')
-  addSuggestion(@Param('id') id: string, @Body() updateFeedDto: UpdateFeedDto) {
-    console.log("feed update",  updateFeedDto)
-    return this.feedService.update(id, updateFeedDto);
+  addFeed(@Param('id') id: string, @Body() updateFeedDto: UpdateFeedDto) {
+    console.log("feed add",  updateFeedDto)
+    return this.feedService.addFeed(id, updateFeedDto);
   }
   @Delete(':id')
   remove(@Param('id') id: string) {
